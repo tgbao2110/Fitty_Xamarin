@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fitty_Xamarin.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Red" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
+
 </Application>

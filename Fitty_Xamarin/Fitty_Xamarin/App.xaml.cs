@@ -1,6 +1,7 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+
 
 namespace Fitty_Xamarin
 {
@@ -9,7 +10,6 @@ namespace Fitty_Xamarin
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new Welcome());
         }
 
