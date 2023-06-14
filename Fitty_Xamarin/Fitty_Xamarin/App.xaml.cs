@@ -10,7 +10,7 @@ namespace Fitty_Xamarin
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Welcome());
+            MainPage = new NavigationPage(new BMICalculator());
         }
 
         protected override void OnStart()
