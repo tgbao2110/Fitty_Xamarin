@@ -1,25 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fitty_Xamarin.BMICalculator">
     <ContentPage.Content>
-        <Grid Margin="30">
+        <Grid Margin="30,10,30,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" VerticalOptions="Center">
-                <Label Text="Your BMI is:" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center" FontSize="Large" />
+
+            <Grid Grid.Row="0" VerticalOptions="Center" Padding="5">
+                <Label Text="Your BMI is:" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center" FontSize="18"/>
             </Grid>
+
             <Grid Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center">
                 <Grid VerticalOptions="Center" HorizontalOptions="Center">
                     <BoxView BackgroundColor="LightBlue" CornerRadius="75" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="150" HeightRequest="150" />
-                    <Label x:Name="bmiLabel" FontSize="Large" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    <Label x:Name="bmiLabel" FontSize="Large" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
                 </Grid>
             </Grid>
+
             <Label x:Name="healthStatusLabel" Grid.Row="2" Text="" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,20,0,0" FontSize="20" FontAttributes="Bold"/>
+
             <Grid Grid.Row="3" Padding="0, 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -53,6 +58,23 @@
                 <Label x:Name="obeseDescription2" Grid.Row="4" Grid.Column="2" Text="Very high risk of developing health problems" FontSize="Small" VerticalTextAlignment="Start" />
                 <Label x:Name="obeseDescription3" Grid.Row="5" Grid.Column="2" Text="Extremely high risk of developing health problems" FontSize="Small" VerticalTextAlignment="Start" />
             </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Text="Custom" Clicked="OnCustomClicked" BackgroundColor="LightGray" WidthRequest="100" HeightRequest="50" Margin="0, 10, 0, 10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                <Button Grid.Column="1" Text="Reset" Clicked="OnResetClicked" BackgroundColor="LightGray" WidthRequest="100" HeightRequest="50" Margin="0, 10, 0, 10" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+            <StackLayout x:Name="customPopup" IsVisible="false" BackgroundColor="White" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="300" HeightRequest="300"
+                  Grid.Row="0" Grid.RowSpan="15">
+                <Label Text="Enter your height (in cm)" FontSize="Medium" TextColor="Black" Margin="0,0,0,5"/>
+                <Entry x:Name="heightEntry" Placeholder="cm" Keyboard="Numeric" Margin="0,0,0,10"/>
+                <Label Text="Enter your weight (in kg)" FontSize="Medium" TextColor="Black" Margin="0,0,0,5"/>
+                <Entry x:Name="weightEntry" Placeholder="kg" Keyboard="Numeric" Margin="0,0,0,10"/>
+                <Button Text="Calculate" Clicked="OnCalculateClicked" BackgroundColor="LightGray" WidthRequest="100" HeightRequest="50" Margin="0,10,0,0"/>
+            </StackLayout>
 
         </Grid>
     </ContentPage.Content>
